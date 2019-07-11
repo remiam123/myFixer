@@ -1,0 +1,472 @@
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    list-style: none
+    font-family: 'Roboto', sans-serif
+
+@import "mixins.sass"
+
+body
+    background-color: #F9FAFC
+
+a
+    text-decoration: none
+    color: inherit
+
+input
+    outline: none
+    border: none
+    font-size: 14px
+    opacity: 0.3
+
+ul li
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    align-items: center
+    cursor: pointer
+
+.ham
+  cursor: pointer
+  -webkit-tap-highlight-color: transparent
+  transition: transform 400ms
+  -moz-user-select: none
+  -webkit-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+.line
+  fill: none
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms
+  stroke: #8089a6
+  stroke-width: 5.5
+  stroke-linecap: round
+
+.hamRotate.active 
+  transform: rotate(45deg)
+  stroke: #8089a6
+
+.hamRotate180.active
+  transform: rotate(180deg)
+  stroke: #8089a6
+
+.ham2 .top 
+  stroke-dasharray: 40 121
+
+.ham2 .bottom
+  stroke-dasharray: 40 121
+
+.ham2.active .top 
+  stroke-dashoffset: -102px
+  stroke: #8089a6
+
+.ham2.active .middle
+    stroke: #8089a6
+
+.ham2.active .bottom 
+  stroke-dashoffset: -102px
+  stroke: #8089a6
+
+.nawBtn
+    display: none
+    @include small-mobile
+        display: inline
+        position: absolute
+        z-index: 3
+        top: 2px
+        left: 14px
+        width: 50px
+        height: 50px
+    @include mobile
+        display: inline
+        position: absolute
+        z-index: 3
+        top: -5px
+        left: 9px
+        width: 70px
+        height: 70px
+
+
+.sidebar
+    position: fixed
+    background-color: #01134E
+    width: 80px
+    height: 100%
+    @include small-mobile
+        margin-left: -250px
+        transition: 1s
+        z-index: 2
+    @include mobile
+        width: 90px
+        margin-left: -250px
+        transition: 1s
+        z-index: 2
+
+.showSidebar
+    transition: all .3s
+    margin-left: 0px
+    padding-top: 60px
+    z-index: 2
+
+.logo
+    margin-top: 18px
+
+.sidebar__logo-schedule
+    margin-top: 75px
+    position: relative
+
+.sidebar__logo-schedule::after
+    content: '1'
+    padding: 3px 6px
+    font-size: 11px
+    color: #fff
+    font-weight: bold
+    position: absolute
+    background-color: #2A74DB
+    border-radius: 50%
+    right: 20px
+    bottom: 9px
+
+.sidebar__logo
+    margin-top: 70px
+
+.sidebar__logo-active
+    border-left: 4px solid #0ad69c
+    height: 48px
+    margin-top: 50px
+
+.topPanel
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    background-color: #ffffff
+    padding: 20px 40px
+    border-bottom: 1px solid #DAE4F2
+    width: calc(100% - 80px)
+    height: 60px
+    margin-left: 80px
+
+    &__user-profile
+        cursor: pointer
+        @include small-mobile
+            display: none
+        @include mobile
+            display: none
+
+    &__arrow
+        margin-left: 8px
+        margin-right: 8px
+
+    @include small-mobile
+        width: 100%
+        font-size: 15px
+        margin: 0
+        padding: 15px 15px 20px 85px
+    @include mobile
+        width: 100%
+        margin-left: 0px
+        padding: 20px 15px 20px 95px
+    @include desktop-small
+        width: 100%
+        margin: 0
+        padding-left: 105px
+        
+.center
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    background-color: #ffffff
+    box-shadow: 0px 0px 30px rgba(153, 163, 174, 0.06)
+    border-radius: 4px
+    width: 85%
+    height: 750px
+    margin-left: 122px
+    margin-top: 45px
+    @include small-mobile
+        margin: 0 auto
+        width: 100%
+    @include mobile
+        width: 100%
+        margin: 0 auto
+    @include desktop-small
+        margin-left: 105px
+
+.center__messages
+    width: 35%
+    height: 100%
+    @include small-mobile
+        width: 80px
+    @include mobile
+        width: 90px
+    @include small-tablet
+        width: 90px
+    @include desktop-small
+        width: 230px
+
+
+.profile__name
+    margin-right: 4px
+
+.profile__img
+    vertical-align: middle
+    margin-right: 8px
+
+.messages__item
+    padding: 30px 40px
+    position: relative
+    height: 125px
+    cursor: pointer
+    @include small-mobile
+        padding: 25px 7px
+        height: 95px
+    @include mobile
+        padding: 25px 14px
+    @include small-tablet
+        padding: 25px 14px
+    @include desktop-small
+        padding: 30px 8px
+
+.messages__item-active
+    background: #FFFFFF
+    box-shadow: 0px 5px 5px rgba(190, 200, 212, 0.2), 0px -5px 5px rgba(224, 224, 224, 0.15)
+
+.message__name
+    display: inline-block
+    margin-top: 10px
+    margin-bottom: 8px
+    font-family: 'Exo 2', sans-serif
+    font-weight: 700
+    font-size: 16px
+    line-height: 19px
+    letter-spacing: 0.571429px
+    @include small-mobile
+        font-size: 0px
+    @include mobile
+        font-size: 0px
+    @include small-tablet
+        font-size: 0px
+    @include desktop-small
+        margin-top: 5px
+
+.message__name-online
+    position: relative
+
+.message__name-online::after
+    content: ""
+    padding: 3px
+    position: absolute
+    background-color: #0ad69c
+    border-radius: 50%
+    right: -10px
+    top: 1px
+    @include small-mobile
+        padding: 5px
+        top: -15px
+        right: -65px
+    @include mobile
+        padding: 5px
+        top: -15px
+        right: -65px
+    @include small-tablet
+        padding: 5px
+        top: -15px
+        right: -65px
+
+.message__mesagges
+    display: block
+    color: #8089a6
+    font-size: 14px
+    line-height: 18px
+    @include small-mobile
+        display: none
+    @include mobile
+        display: none
+    @include small-tablet
+        display: none
+
+.message__time
+    position: absolute
+    right: 15px
+    top: 15px
+    color: #8089a6
+    font-size: 12px
+    opacity: 0.5
+    @include small-mobile
+        display: none
+    @include mobile
+        display: none
+    @include small-tablet
+        display: none
+
+.message__avatar
+    float: left
+    margin-right: 14px
+    width: 65px
+    height: 65px
+
+.message__mute
+    position: absolute
+    top: 47px
+    left: 245px
+    @include small-mobile
+        top: 10px
+        left: 72px
+    @include mobile
+        top: 10px
+        left: 80px
+    @include small-tablet
+        top: 10px
+        left: 80px
+    @include desktop-small
+        top: 42px
+        left: 210px
+
+.chat
+    width: 65%
+    height: 100%
+    display: flex
+    justify-content: space-between
+    flex-direction: column
+    border-left: 1px solid #EDF0F4
+    @include small-mobile
+        width: calc(100% - 80px)
+    @include mobile
+        width: calc(100% - 90px)
+    @include small-tablet
+        width: calc(100% - 90px)
+    @include desktop-small
+        width: calc(100% - 230px)
+
+.chat__search
+    display: flex
+    justify-content: flex-start
+    height: 50px
+    border-bottom: 1px solid #f5f6f9
+    background-color: #fff
+
+.chat__img
+    margin-right: 20px
+    margin-left: 18px
+    cursor: pointer
+
+.chat__input
+    width: 99%
+
+.chat__window
+    display: flex
+    justify-content: flex-end
+    flex-flow: column
+    height: 650px
+    font-size: 14px
+    line-height: 20px
+
+.mail::-webkit-scrollbar
+    width: 8px
+    background: #F5F5F7
+    mix-blend-mode: normal
+    opacity: 0.05
+    border-radius: 4px
+    margin: 6px
+
+.mail::-webkit-scrollbar-thumb
+    background: #DFE4F2
+    mix-blend-mode: normal
+    opacity: 0.1
+    border-radius: 4px
+
+.mail
+    min-height: 100px
+    overflow-y: scroll
+    margin: 5px
+
+.mail__inbox
+    display: flex
+    justify-content: flex-start
+    align-items: flex-end
+    margin: 10px
+
+.inbox__vector
+    position: absolute
+    left: -13px
+    bottom: -1px
+    transform: matrix(-0.99, 0.11, 0.11, 0.99, 0, 0)
+
+.inbox__photo
+    width: 36px
+    height: 36px
+    margin-right: 10px
+
+.mail__outbox
+    display: flex
+    justify-content: flex-end
+
+.outbox__vector
+    position: absolute
+    right: -12px
+    bottom: -1px
+
+.mail__text
+    background-color: #F7F9FC
+    border-radius: 5px
+    width: 350px
+    padding: 15px 65px 15px 15px
+    margin-left: 15px
+    margin-right: 15px
+    position: relative
+    @include small-mobile
+        padding: 10px 43px 15px 15px
+    
+
+.mail__time
+    display: block
+    font-size: 12px
+    color: #9BA0AD
+    position: absolute
+    right: 12px
+    bottom: 5px
+
+.mail__input
+    display: flex
+    height: 61px
+    background: #FFFFFF
+    box-shadow: 0px 0px 20px rgba(153, 163, 174, 0.146541)
+
+.mail__link
+    margin-top: 18px
+
+.mail__send
+    padding-left: 45px
+    width: 83%
+    @include small-mobile
+        width: 56%
+        padding-left: 15px
+    @include mobile
+        width: 65%
+    @include small-tablet
+        width: 75%
+
+.send
+    display: inline-block
+    margin-top: 10px
+    width: 36px
+    height: 36px
+    background: #FFFFFF
+    box-shadow: 0px 0px 15px rgba(153, 163, 174, 0.259256)
+    border-radius: 7px
+
+    &__img
+        vertical-align: middle
+        margin-right: 20px
+        @include small-mobile
+            margin-right: 12px
+        @include mobile
+            margin-right: 12px
+        @include small-tablet
+            margin-right: 15px
+
+    &__img-active
+        width: 30px
+        height: 35px
+        padding-left: 5px

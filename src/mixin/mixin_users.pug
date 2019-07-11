@@ -1,0 +1,22 @@
+
+mixin messages__item(user)
+  if !user.active
+    .messages__item
+      img(src=user.img, alt="photo" class="message__avatar")
+      span.message__name= user.name
+        if user.mute 
+          img.message__mute(src="img/Mute.svg", alt="mute")
+        if user.online
+          span.message__name-online
+      p.message__mesagges= user.text
+      span.message__time= user.time
+  else
+    .messages__item.messages__item-active
+      img(src=user.img, alt="photo" class="message__avatar")
+      span.message__name.message__name-online= user.name
+      p.message__mesagges= user.text
+      span.message__time= user.time
+
+
+
+

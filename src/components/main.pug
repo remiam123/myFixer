@@ -1,0 +1,25 @@
+include ../mixin/mixin_users.pug
+include ../mixin/mixin_chat.pug
+include ../variables/db.pug
+main.center
+  section.center__messages
+    each user in users
+      +messages__item(user)
+  section.chat
+    .chat__search
+      img.chat__img(src="img/Magnifier.svg", alt="Magnifier")
+      input(type="text" placeholder="Search message...")
+    .chat__window
+      .mail
+        -var n = 0;
+          while n < inbox.length
+            +inbox(inbox[n])
+            +outbox(outbox[n++])
+    .mail__input
+      input(type="text" placeholder="Write a message..." class="mail__send")
+      a(href="#" class="mail__link")
+        img(src="img/Smile.svg", alt="smile" class="send__img")
+      a(href="#" class="mail__link")
+        img(src="img/File.svg", alt="clip" class="send__img")
+      a(href="#" class="send")
+        img(src="img/send-message-button.svg", alt="PaperPlane" class="send__img send__img-active")
