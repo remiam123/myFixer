@@ -1,12 +1,12 @@
-mixin inbox(user)
-  .mail__inbox
-    img.inbox__photo(src=user.img, alt="photo")
-    .mail__text= user.mail
-      span.mail__time= user.time
-      img.inbox__vector(src="img/after.svg", alt="")
-
-mixin outbox(user)
-  .mail__outbox
-    .mail__text= user.mail
-      span.mail__time= user.time
-      img.outbox__vector(src="img/after.svg", alt="")
+mixin chat(user)
+  if user.left
+    .mail__inbox
+      img(src=user.img, class="inbox__photo" alt="photo")
+      .mail__text= user.mail
+        span.mail__time= user.time
+        img.inbox__vector(src="img/after.svg", alt="")
+  else if user.right
+    .mail__outbox
+      .mail__text= user.mail
+        span.mail__time= user.time
+        img.outbox__vector(src="img/after.svg", alt="")

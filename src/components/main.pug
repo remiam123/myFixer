@@ -11,10 +11,8 @@ main.center
       input(type="text" placeholder="Search message...")
     .chat__window
       .mail
-        -var n = 0;
-          while n < inbox.length
-            +inbox(inbox[n])
-            +outbox(outbox[n++])
+        each user in mails
+          +chat(user)
     .mail__input
       input(type="text" placeholder="Write a message..." class="mail__send")
       a(href="#" class="mail__link")
