@@ -5,7 +5,7 @@ mixin chat(user)
       .mail__text= user.mail
         span.mail__time= user.time
         img.inbox__vector(src="img/after.svg", alt="")
-  else if user.right
+  else
     .mail__outbox
       .mail__text= user.mail
         span.mail__time= user.time
